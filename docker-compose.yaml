@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  app:
+    container_name: costumers
+    build: .
+    ports:
+      - ${EXPOSE_PORT}:${HTTP_PORT}
+    restart: on-failure
+    volumes:
+      - ./:/app/
+    env_file:
+      - .env
+    network_mode: "host"
